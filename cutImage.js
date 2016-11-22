@@ -47,10 +47,8 @@
       var newCanvas = document.createElement("canvas");
       newCanvas.getContext("2d").putImageData(_getAfterCutImg(canvas,cutbox,img,trueImg),0,0);
       newCanvas.toBlob(function(blob){
-        debugger
         result = blob;
       },"image/png",1);
-      debugger
       return result;
     }
 
@@ -78,7 +76,7 @@
     //计算图片的实际长宽度，偏差值通过比例计算
     widthPercent = trueImg.width / img.offsetWidth;
     heightPercent = trueImg.height / img.offsetHeight;
-    var newImg = canvas.getContext("2d").getImageData(x*widthPercent,y*heightPercent,cutbox.offsetWidth*widthPercent,cutbox.offsetWidth*heightPercent);
+    var newImg = canvas.getContext("2d").getImageData(x*widthPercent,y*heightPercent,cutbox.offsetWidth*widthPercent,cutbox.offsetHeight*heightPercent);
     return newImg;
 
   }
